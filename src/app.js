@@ -74,9 +74,14 @@ app.get('/products', (req,res)=>{
 app.get('/products/:pid', (req,res)=>{
     const pid=req.params.pid;
     const productManager = new ProductManager("./products.txt");
-    let producto= productManager.getProductById(pid);    
-    res.send({producto:producto}); 
+    let producto= productManager.getProductById(pid); 
+    if(!producto){
+        res.send({error:"El producto no existe."});
+    }   
+    else {res.send({producto:producto})}; 
 })
+//al no existir el id del producto, debe devolver un objeto
+// con un error indicando que el producto no existe.
 
 
 // console.log(productManager.getProducts());
