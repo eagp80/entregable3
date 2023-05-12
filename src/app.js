@@ -53,9 +53,23 @@ productManager.addProduct("Producto 9", "Descripción del producto 9", 100, "ima
 productManager.addProduct("Producto 10", "Descripción del producto 10", 100, "imagen/logo1.jpg", 10, 5);
 
 app.get('/products', (req,res)=>{
+    let limit=req.query.limit;
     const productManager = new ProductManager("./products.txt");
-    const productos= productManager.getProducts();
-    res.send({productos:productos});
+    let productos= productManager.getProducts();
+    if(limit){
+        //enviar cantidad de productos igual a limit
+        let arr=[];
+        for(let i=0; i<limit; i++){
+            arr.push(productos[i]);                         
+        }
+        res.send({productos:arr});
+    }
+    else{
+        //enviar arreglo de productos completo
+        res.send({productos:productos}); 
+    }
+    
+    
 })
 
 // console.log(productManager.getProducts());
