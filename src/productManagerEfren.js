@@ -1,6 +1,6 @@
-const { error } = require('console');
-const fs = require('fs');
-class ProductManager {
+import { error } from 'console';
+import fs from 'fs';
+export default class ProductManager {
   constructor(path) {
 
     this.products = [];
@@ -115,24 +115,24 @@ deleteProduct(Id) {
  
 
 
-const productManager = new ProductManager("./products.txt");
+// const productManager = new ProductManager("./products.txt");
 
-productManager.addProduct("Producto 1", "Descripción del producto 1", 100, "imagen/logo1.jpg", 1, 5);
-productManager.addProduct("Producto 2", "Descripción del producto 2", 200, "imagen/logo2.jpg", 2, 12);
-console.log(productManager.getProducts());
-a1=productManager.getProductById(1);
-console.log(a1);
-a0=productManager.getProductById(0);
-console.log(a0);
-a3=productManager.getProductById(3);
-console.log(a3);
-productManager.addProduct("Producto 3", "Descripción del producto 3", 500, "imagen/logo3.jpg", 1, 5);
-productManager.addProduct("Producto 3", "Descripción del producto 3", 500, "imagen/logo3.jpg");
-console.log(productManager.getProducts());
-productManager.updateProduct(1,{title:undefined,description:"Descripcion actualizada producto 3",price:300, thumbnail:"imagen/logo2.jpg", code:2});
-a1=productManager.getProductById(1);
-console.log(a1);
-productManager.deleteProduct(1);
-a1=productManager.getProductById(0);
-console.log(`producto::`,a1);
+// productManager.addProduct("Producto 1", "Descripción del producto 1", 100, "imagen/logo1.jpg", 1, 5);
+// productManager.addProduct("Producto 2", "Descripción del producto 2", 200, "imagen/logo2.jpg", 2, 12);
+// console.log(productManager.getProducts());
+// a1=productManager.getProductById(1);
+// console.log(a1);
+// a0=productManager.getProductById(0);
+// console.log(a0);
+// a3=productManager.getProductById(3);
+// console.log(a3);
+// productManager.addProduct("Producto 3", "Descripción del producto 3", 500, "imagen/logo3.jpg", 1, 5);
+// productManager.addProduct("Producto 3", "Descripción del producto 3", 500, "imagen/logo3.jpg");
+// console.log(productManager.getProducts());
+// productManager.updateProduct(1,{title:undefined,description:"Descripcion actualizada producto 3",price:300, thumbnail:"imagen/logo2.jpg", code:2});
+// a1=productManager.getProductById(1);
+// console.log(a1);
+// productManager.deleteProduct(1);
+// a1=productManager.getProductById(0);
+// console.log(`producto::`,a1);
 
