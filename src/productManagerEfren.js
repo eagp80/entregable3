@@ -18,7 +18,7 @@ export default class ProductManager {
       console.log("Faltan datos, no se agregó el producto");
       return
     } else {
-      const verificarCode = this.products.findIndex(p => p.code === code);
+      const verificarCode = this.products.findIndex(p => p.code == code);
       if (verificarCode !== -1) {
         console.log(`Code ${code} ya existente debe asignarle un código diferente.`, "No se agregó el producto.");
         return;
@@ -51,7 +51,7 @@ export default class ProductManager {
 
   getProductById(Id) {
     const products =this.getProducts();
-    const product = products.find((p) => p.id === Id);
+    const product = products.find((p) => p.id == Id);//ojo no === sino == porque viene de navegador (string)
         if (product) {
             return product;
         } else {
@@ -68,7 +68,7 @@ export default class ProductManager {
   }
 //Actualizar un producto
 updateProduct(Id, { title, description, price, thumbnail, stock } = {}) {
-  const productIndex = this.products.findIndex((p) => p.id === Id);
+  const productIndex = this.products.findIndex((p) => p.id == Id);
   if (productIndex !== -1) {
       const product = this.products[productIndex];
       product.title = title || product.title;

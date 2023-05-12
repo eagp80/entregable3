@@ -71,6 +71,13 @@ app.get('/products', (req,res)=>{
     
     
 })
+app.get('/products/:pid', (req,res)=>{
+    const pid=req.params.pid;
+    const productManager = new ProductManager("./products.txt");
+    let producto= productManager.getProductById(pid);    
+    res.send({producto:producto}); 
+})
+
 
 // console.log(productManager.getProducts());
 // a1=productManager.getProductById(1);
